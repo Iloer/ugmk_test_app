@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const Content = ({data}) => {
   const navigate = useNavigate();
-  const barClickHandler = (factory, month) => {
-    const monthNum = (new Date(`1900 ${month} 1`)).getMonth() + 1
-    navigate(`/details/${factory}/${monthNum}`)
+
+  const barClickHandler = (e, index) => {
+    const factory = Object.keys(e.payload).find(f => e.payload[f] === e.value)
+    navigate(`/details/${factory}/${e.month}`)
   }
 
   return (
@@ -26,7 +27,7 @@ const Content = ({data}) => {
             bottom: 5,
           }}
         >
-          <XAxis dataKey="month"/>
+          <XAxis dataKey="monthName"/>
           <YAxis />
           <Legend />
           {
@@ -37,7 +38,7 @@ const Content = ({data}) => {
                 dataKey={factory}
                 fill={FactoryNames[factory].color}
                 cursor="pointer"
-                onClick={(e) => {barClickHandler(factory, e.month)}} 
+                onClick={barClickHandler} 
               />  
             ))
           }

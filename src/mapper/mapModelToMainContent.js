@@ -8,7 +8,8 @@ const MapModelToMainContent = (model, product) => { // TODO: переделат�
             Object.keys(model[y][m]).reduce((rec, cur) => {
               return { ...rec,
                 year: y,
-                month: GetMonthName(m), 
+                month: m, 
+                monthName: GetMonthName(m), 
                 [cur]: (
                   product === 'all' 
                     ? (model[y][m][cur].product1 + model[y][m][cur].product2/* + model[y][m][cur].product3*/) 
