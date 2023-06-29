@@ -1,0 +1,16 @@
+.details {
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+  height: 90vh;
+}
+
+.label {
+  font-size: 6vh;
+  font-weight: bold;
+}
+
+.pie {
+  font-size: 4vh;
+}

@@ -1,0 +1,10 @@
+.content {
+  border: 0.35vh solid black;
+  border-radius: 2vh;
+  height: 70vh;
+  padding: 2vh;
+}
+
+.barChart {
+  font-size: 3vh;
+}

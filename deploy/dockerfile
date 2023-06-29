@@ -1,0 +1,22 @@
+# Базовый образ node
+FROM node:16 AS build
+
+USER 0
+ARG VERSION="1.0"
+
+COPY . /app
+WORKDIR /app
+
+RUN npm cache clean --force
+RUN npm install --loglevel verbose ;
+RUN REACT_APP_VERSION=$VERSION npm run build
+
+FROM nginx
+
+RUN mkdir /app
+COPY --from=build /app/build /app
+COPY --from=build /app/deploy/nginx.config /etc/nginx/nginx.conf
+
+EXPOSE 8080
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
