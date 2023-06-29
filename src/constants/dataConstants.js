@@ -3,11 +3,10 @@ export const FactoryNames = {
   2: {name:'Б', color: '#0000FF'},
 }
 
-export const ProductNames = {
-  "product1": 'Продукт 1',
-  "product2": 'Продукт 2',
-  "product3": 'Продукт 3',
-  "all": 'Все продукты',
-}
+export const ActualProducts = [
+  { name: "product1", label: 'Продукт 1'},
+  { name: "product2", label: 'Продукт 2'},
+//  { name: "product3", label: 'Продукт 2'},
+]
 
 export const ActualYear = '2022'

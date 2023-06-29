@@ -1,7 +1,6 @@
 import React from "react";
 import style from './header.module.css'
 import {ActiveProductIdContext} from '../../../context'
-import { ProductNames } from "../../../constants/dataConstants";
 
 const Header = ( {products} ) => {
 
@@ -14,7 +13,7 @@ const Header = ( {products} ) => {
       </label>
       <select className={style.select} name="selectedActiveProduct" value={activeProductId} onChange={(e) => setActiveProductId(e.target.value)}>
         {
-          products.map(p => (<option key={p} value={p}>{ProductNames[p]}</option>))
+          products.map(p => (<option key={p.name} value={p.name}>{p.label}</option>))          
         }
       </select>
     </header>

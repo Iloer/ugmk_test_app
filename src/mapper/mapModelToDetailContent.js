@@ -1,13 +1,6 @@
-import { ActualYear, ProductNames } from "../constants/dataConstants";
+import { ActualProducts, ActualYear } from "../constants/dataConstants";
 
-const mapModelToDetailContent = (model, factory, month) => {
-
-  let res = [
-    { name: ProductNames['product1'], value: model?.[ActualYear]?.[month]?.[factory]?.['product1'] },
-    { name: ProductNames['product2'], value: model?.[ActualYear]?.[month]?.[factory]?.['product2'] }
-  ]
-  
-  return res
-}
+const mapModelToDetailContent = (model, factory, month) =>  
+  ActualProducts.map(prod => ({ name: prod.name, value: model?.[ActualYear]?.[month]?.[factory]?.[prod.name] }))
 
 export default mapModelToDetailContent;
