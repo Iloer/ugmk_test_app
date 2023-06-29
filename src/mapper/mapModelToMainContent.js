@@ -17,7 +17,17 @@ const MapModelToMainContent = (model, products) => {
     })
   ))
 
-  return result
+  return result.sort((a, b) => {
+    const monthA = parseInt(a.month, 10)
+    const monthB = parseInt(b.month, 10)
+    if (monthA < monthB) {
+      return -1;
+    }
+    if (monthA > monthB) {
+      return 1;
+    }
+    return 0;
+  });
 }
 
 export default MapModelToMainContent;
